@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-deployment
+  labels:
+    app: nagp-assignment-1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nagp-assignment-1
+  template:
+    metadata:
+      labels:
+        app: nagp-assignment-1
+    spec:
+      containers:
+      - name: nagp-assignment-1
+        image: rupi090786/user:1.0.0-SNAPSHOT
+        ports:
+        - containerPort: 9090
+        env:
+        - name: RDS_HOSTNAME
+          value: sql-service
+        - name: JAEGER_HOST
+          value: jaeger-agent

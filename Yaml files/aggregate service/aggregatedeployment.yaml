@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aggregate-deployment
+  labels:
+    app: nagp-assignment-3
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nagp-assignment-3
+  template:
+    metadata:
+      labels:
+        app: nagp-assignment-3
+    spec:
+      containers:
+      - name: nagp-assignment-3
+        image: rupi090786/aggregate:1.0.0-SNAPSHOT
+        ports:
+        - containerPort: 9092

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-deployment
+  labels:
+    app: nagp-assignment-2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nagp-assignment-2
+  template:
+    metadata:
+      labels:
+        app: nagp-assignment-2
+    spec:
+      containers:
+      - name: nagp-assignment-2
+        image: rupi090786/order:1.0.0-SNAPSHOT
+        ports:
+        - containerPort: 9091
+        env:
+        - name: JAEGER_HOST
+          value: jaeger-agent

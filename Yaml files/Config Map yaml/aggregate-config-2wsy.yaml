@@ -1,0 +1,15 @@
+apiVersion: v1
+data:
+  JAEGER_HOST: jaeger-agent
+  ORDER_SERVICE_URI: http://order-deployment-service
+  USER_SERVICE_URI: http://user-deployment-service
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2020-04-12T08:20:10Z"
+  labels:
+    app: aggregate
+  name: aggregate-config-2wsy
+  namespace: default
+  resourceVersion: "55653"
+  selfLink: /api/v1/namespaces/default/configmaps/aggregate-config-2wsy
+  uid: 6cee30ca-7c96-11ea-92cf-42010a80009b
